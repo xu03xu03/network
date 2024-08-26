@@ -1,0 +1,23 @@
+.custom-title {
+    color: #77abc0;
+    border-left: 3px solid #77abc0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.custom-btn {
+    background-color: #77abc0;
+    border-color: #77abc0;
+    color: #6c757d;
+}
+
+.custom-btn:hover {
+    background-color: #77abc0;
+    border-color: #77abc0;
+}
+.custom-btn:focus{
+    box-shadow: #77abc0;
+    outline: none;
+}

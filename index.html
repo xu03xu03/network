@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/case.css">
+    <link rel="stylesheet" href="./css/card.css">
+    <link rel="stylesheet" href="./css/contactus.css">
+    <link rel="stylesheet" href="./css/price.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top m-0">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img height="30" src="img/work.jpg" alt="" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./index.html">首頁</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            提供服務
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#service">服務介紹</a></li>
+                            <li><a class="dropdown-item" href="#case">樣板參考</a></li>
+                            <li><a class="dropdown-item" href="#card">定價</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./aboutus.html">關於我們</a>
+                    </li>
+                </ul>
+                <form class="d-flex align-items-center ">
+                    <a href="#" class="text-decoration-none">
+                        <i class="bi bi-cart me-2" style="font-size: 1.5rem; color: #17a2b8;"></i>
+                    </a>
+                    <a href="./login.html" class="btn btn-info me-2">登入</a>
+                    <a href="./register.html" class="btn btn-outline-info me-3">註冊</a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div id="app" class="wrapper" v-cloak v-bind:class="{'is-previous': isPreviousSlide, 'first-load': isFirstLoad}">
+        <div class="slide-wrapper" v-for="(slide, index) in slides" v-bind:class="{ active: index === currentSlide }"
+            v-bind:style="{ 'z-index': (slides.length - index), 'background-image': 'url(' + slide.bgImg + ')' }">
+            <div class="slide-inner">
+                <div class="slide-bg-text">
+                    <p>{{ slide.headlineFirstLine }}</p>
+                    <p>{{ slide.headlineSecondLine }}</p>
+                </div>
+                <div class="slide-rect-filter">
+                    <div class="slide-rect" v-bind:style="{'border-image-source': 'url(' + slide.rectImg + ')'}"></div>
+                </div>
+                <div class="slide-content">
+                    <h1 class="slide-content-text">
+                        <p>{{ slide.headlineFirstLine }}</p>
+                        <p>{{ slide.headlineSecondLine }}</p>
+                    </h1>
+                    <a :href="slide.href" class="slide-content-cta">了解更多</a>
+                </div>
+                <h2 class="slide-side-text"><span>{{ slide.sublineFirstLine }} / </span><span>{{ slide.sublineSecondLine
+                        }}</span></h2>
+            </div>
+        </div>
+        <div class="controls-container">
+            <button class="controls-button" v-for="(slide, index) in slides"
+                v-bind:class="{ active: index === currentSlide }" v-on:click="updateSlide(index)">{{
+                slide.headlineFirstLine }} {{ slide.headlineSecondLine }}</button>
+        </div>
+        <div class="pagination-container">
+            <span class="pagination-item" v-for="(slide, index) in slides"
+                v-bind:class="{ active: index === currentSlide }" v-on:click="updateSlide(index)"></span>
+        </div>
+    </div>
+    <!-- 服務(沒有CSS) -->
+    <h1 id="service">服務介紹</h1>
+    <section>
+        <div class="container-fluid">
+            <div class="row align-items-strech">
+                <div class="col-lg-6">
+                    <div class="text-center px-2 py-5 p-lg-5">
+                        <h2>Section Title</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br /> Odio voluptate accusantium
+                            aliquid voluptatibus unde ad repudiandae,<br /> dicta beatae rem dolorum.<br /> Laudantium
+                            similique error pariatur nemo esse! <br />Quos consequuntur perferendis sed?</p>
+                        <a href="#" class="btn service-btn">Button</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 custom-image"
+                    style="background:url('https://images.unsplash.com/photo-1616627440455-9907b864b144?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=929&q=80') center;background-size:cover;min-height:300px;">
+                </div>
+            </div>
+            <div class="row align-items-strech">
+                <div class="col-lg-6 order-lg-2 order-1">
+                    <div class="text-center px-2 py-5 p-lg-5">
+                        <h2>Section Title</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br /> Odio voluptate accusantium
+                            aliquid voluptatibus unde ad repudiandae,<br /> dicta beatae rem dolorum.<br /> Laudantium
+                            similique error pariatur nemo esse! <br />Quos consequuntur perferendis sed?</p>
+                        <a href="#" class="btn service-btn">Button</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1 order-2 custom-image"
+                    style="background:url('https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjF8fHdvcmt8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60') center;background-size:cover;min-height:300px;">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 樣板選擇(case.css) -->
+    <section>
+        <h1 id="case">樣版參考</h1>
+        <div class="container">
+            <div class="card">
+                <div class="card-inner" style="--clr:#fff;">
+                    <div class="box">
+                        <div class="imgBox">
+                            <img src="https://images.unsplash.com/photo-1601049676869-702ea24cfd58?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Trust & Co.">
+                        </div>
+                        <div class="icon">
+                            <a href="#" class="iconBox"> <span class="material-symbols-outlined">
+                                    arrow_outward
+                                </span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>trust &amp; co.</h3>
+                    <p>Fill out the form and the algorithm will offer the right team of experts</p>
+                    <ul>
+                        <li style="--clr-tag:#fc9c7d;" class="branding ms-3"><a href="#">查看樣板</a></li>
+                        <li style="--clr-tag:#6dd6d0;" class="packaging"><a href="#">立即使用</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-inner" style="--clr:#fff;">
+                    <div class="box">
+                        <div class="imgBox">
+                            <img src="https://images.unsplash.com/photo-1613235788366-270e7ac489f3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Tonic">
+                        </div>
+                        <div class="icon">
+                            <a href="#" class="iconBox"> <span class="material-symbols-outlined">
+                                    arrow_outward
+                                </span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>tonic</h3>
+                    <p>Fill out the form and the algorithm will offer the right team of experts</p>
+                    <ul>
+                        <li style="--clr-tag:#fc9c7d;" class="branding ms-3"><a href="#">查看樣板</a></li>
+                        <li style="--clr-tag:#6dd6d0;" class="marketing"><a href="#">立即使用</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-inner" style="--clr:#fff;">
+                    <div class="box">
+                        <div class="imgBox">
+                            <img src="https://images.unsplash.com/photo-1673847401561-fcd75a7888c5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Shower Gel">
+                        </div>
+                        <div class="icon">
+                            <a href="#" class="iconBox"> <span class="material-symbols-outlined">
+                                    arrow_outward
+                                </span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>shower gel</h3>
+                    <p>Fill out the form and the algorithm will offer the right team of experts</p>
+                    <ul>
+                        <li style="--clr-tag:#fc9c7d;" class="branding ms-3"><a href="#">查看樣板</a></li>
+                        <li style="--clr-tag:#6dd6d0;" class="marketing"><a href="#">立即使用</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 報價(card.css、card.js) -->
+    <h1 id="card">服務內容及價格</h1>
+    <div class="container mt-4">
+        <div class="row g-4">
+            <!-- 左側區塊 -->
+            <div class="col-12 col-md-6">
+                <div class="row g-4">
+                    <!-- 左上角小卡片 -->
+                    <div class="col-6">
+                        <div class="card1 bg-resilience text-white h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Resilience</h5>
+                                <p class="card-text">Learn how to tackle adversity...</p>
+                                <a href="#" class="btn btn-light btn-sm learn-more">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 右上角小卡片 -->
+                    <div class="col-6">
+                        <div class="card1 bg-growth text-white h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Growth</h5>
+                                <p class="card-text">Create a development plan...</p>
+                                <a href="#" class="btn btn-light btn-sm learn-more">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 下方大卡片 -->
+                    <div class="col-12">
+                        <div class="card1 bg-visioning text-white h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Visioning</h5>
+                                <p class="card-text">Learn how to strategize...</p>
+                                <a href="#" class="btn btn-light btn-sm learn-more">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 右側區塊 -->
+            <div class="col-12 col-md-6">
+                <div class="row g-4">
+                    <!-- 上方大卡片 -->
+                    <div class="col-12">
+                        <div class="card1 bg-engagement text-white h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Engagement</h5>
+                                <p class="card-text">Develop your sense of belonging...</p>
+                                <a href="#" class="btn btn-light btn-sm learn-more">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 左下角小卡片 -->
+                    <div class="col-6">
+                        <div class="card1 bg-goal-orientation text-white h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Goal Orientation</h5>
+                                <p class="card-text">Adapt your strategies...</p>
+                                <a href="#" class="btn btn-light btn-sm learn-more">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 右下角小卡片 -->
+                    <div class="col-6">
+                        <div class="card1 bg-self-belief text-white h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Self-belief</h5>
+                                <p class="card-text">Gain confidence in your abilities...</p>
+                                <a href="#" class="btn btn-light btn-sm learn-more">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- 聯絡表單 -->
+     <div class="container mt-5">
+        <h2 id="contact" class="text-center mb-5">立即填選表單，盡快與您聯繫</h2>
+        <form class="row g-3 form-us">
+            <div class="col-md-6">
+                <label for="inputName" class="form-label">姓名</label>
+                <input type="text" class="form-control" id="inputName" placeholder="請輸入姓名">
+            </div>
+            <div class="col-md-6">
+                <label for="inputCompany" class="form-label">公司名稱</label>
+                <input type="text" class="form-control" id="inputCompany" placeholder="請輸入公司名稱">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPhone1" class="form-label">連絡電話1</label>
+                <input type="tel" class="form-control" id="inputPhone1" placeholder="請輸入聯絡電話1">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPhone2" class="form-label">連絡電話2</label>
+                <input type="tel" class="form-control" id="inputPhone2" placeholder="請輸入聯絡電話2">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail" placeholder="請輸入Email">
+            </div>
+            <div class="col-md-6">
+                <label for="inputCase" class="form-label">方案選擇</label>
+                <select id="inputCase" class="form-select">
+                    <option selected>選擇方案...</option>
+                    <option>方案A</option>
+                    <option>方案B</option>
+                    <option>方案C</option>
+                    <option>方案D</option>
+                </select>
+            </div>
+            <div class="col-12">
+                <label for="inputMessage" class="form-label">訊息內容</label>
+                <textarea class="form-control" id="inputMessage" rows="5" placeholder="請輸入訊息內容"></textarea>
+            </div>
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-form">送出表單</button>
+            </div>
+        </form>
+    </div>
+  
+
+    <section class="Price py-5">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-4 col-md-8 m-auto mb-4 mb-lg-auto">
+              <div class="shadow border-top border-4  rounded-3 p-4">
+                <h3 class="d-flex justify-content-between">
+                  <span class="title-price">基本方案</span>
+                  <span class="text-price">
+                    NT$499
+                  </span>
+                </h3>
+                <hr />
+                <ul class="text-muted p-4">
+                  <li>特色說明特色說明特色說明</li>
+                  <li>特色說明特色說明特色說明</li>
+                  <li>特色說明特色說明特色說明</li>
+                  <li>特色說明特色說明特色說明</li>
+                </ul>
+                <a href="#" class="btn btn-price d-block">選擇方案</a>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-8 m-auto mb-4 mb-lg-auto">
+              <div class="shadow border-top border-4  rounded-3 p-4 py-5">
+                <h3 class="d-flex justify-content-between">
+                  <span class="title-price">專業方案</span>
+                  <span class="text-price">
+                    NT$999
+                  </span>
+                </h3>
+                <hr />
+                <ul class="text-muted p-4">
+                  <li>特色說明特色說明特色說明</li>
+                  <li>特色說明特色說明特色說明</li>
+                  <li>特色說明特色說明特色說明</li>
+                  <li>特色說明特色說明特色說明</li>
+                </ul>
+                <a href="#" class="btn btn-price d-block">選擇方案</a>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-8 m-auto mb-4 mb-lg-auto">
+              <div class="shadow border-top border-4  rounded-3 p-4">
+                <h3 class="d-flex justify-content-between">
+                  <span class="title-price">專業方案</span>
+                  <span class="text-price">
+                    NT$1299
+                  </span>
+                </h3>
+                <hr />
+                <ul class="text-muted p-4">
+                  <li>特色說明特色說明特色說明</li>
+                  <li>特色說明特色說明特色說明</li>
+                  <li>特色說明特色說明特色說明</li>
+                  <li>特色說明特色說明特色說明</li>
+                </ul>
+                <a href="#" class="btn  btn-price d-block">選擇方案</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+          integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+          crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"
+          integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ"
+          crossorigin="anonymous"></script>
+    <hr>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/card.js"></script>
+</body>
+<!-- footer.css -->
+<footer class="py-5">
+    <div class="container border-bottom">
+        <div class="row gx-5">
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 col-sm-8 col-10">
+                <img src="img/logo.png" class="mb-3" width="70%" alt="" />
+                <p style="color: #6c757d;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum harum quam
+                    modi dolorum reiciendis
+                    maxime, nemo veniam dolores cumque quo.</p>
+            </div>
+            <div class="d-block d-lg-none"></div>
+            <div class="col-lg-2 col-md-3 col-6">
+                <h4 class="custom-title h5 ps-2 mb-3">聯絡方式</h4>
+                <ul class="list-unstyled ps-2">
+                    <li class="pb-3">
+                        <a href="mailto:email@example.com" class="link-secondary">
+                            <i class="bi bi-envelope"></i> Email
+                        </a>
+                    </li>
+                    <li class="pb-3">
+                        <a href="https://wa.me/1234567890" class="link-secondary">
+                            <i class="bi bi-whatsapp"></i> WhatsApp
+                        </a>
+                    </li>
+                    <li class="pb-3">
+                        <a href="https://t.me/username" class="link-secondary">
+                            <i class="bi bi-telegram"></i> Telegram
+                        </a>
+                    </li>
+                    <li class="pb-3">
+                        <a href="https://line.me/R/ti/p/@username" class="link-secondary">
+                            <i class="bi bi-line"></i> LINE
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-3 col-6">
+                <h4 class="custom-title h5 ps-2 mb-3">Link Title</h4>
+                <ul class="list-unstyled ps-2">
+                    <li class="pb-3">
+                        <a href="#" class="link-secondary">Link Name</a>
+                    </li>
+                    <li class="pb-3">
+                        <a href="#" class="link-secondary">Link Name</a>
+                    </li>
+                    <li class="pb-3">
+                        <a href="#" class="link-secondary">Link Name</a>
+                    </li>
+                    <li class="pb-3">
+                        <a href="#" class="link-secondary">Link Name</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-3 col-6">
+                <h4 class="custom-title h5 ps-2 mb-3">Link Title</h4>
+                <ul class="list-unstyled ps-2">
+                    <li class="pb-3">
+                        <a href="#" class="link-secondary">Link Name</a>
+                    </li>
+                    <li class="pb-3">
+                        <a href="#" class="link-secondary">Link Name</a>
+                    </li>
+                    <li class="pb-3">
+                        <a href="#" class="link-secondary">Link Name</a>
+                    </li>
+                    <li class="pb-3">
+                        <a href="#" class="link-secondary">Link Name</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-3 col-6">
+                <h4 class="custom-title h5 ps-2 mb-3">Subscribe</h4>
+                <form>
+                    <input class="form-control mb-1" type="text" placeholder="Your Email" />
+                    <button class="btn w-100 custom-btn" type="submit">Send</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-5">
+        <p class="text-muted small m-0">@copyright 2099 company name</p>
+    </div>
+</footer>
+
+</html>

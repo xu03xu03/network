@@ -1,0 +1,54 @@
+/* 卡片的基本樣式設定，確保卡片為正方形 */
+.card1 {
+    position: relative;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    width: 100%; /* 卡片的寬度隨父元素變化 */
+    padding-top: 100%; /* 透過內邊距來創建正方形 */
+    box-shadow: 11px 8px 8px #d9d9d9;
+  }
+  .card-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .card1:hover {
+    transform: scale(1.05);
+  }
+  /* 各卡片的背景色 */
+  .bg-resilience { background-color: #d9d9d9; } /* 淡紅色 */
+  .bg-growth { background-color: #6dd6d0; } /* 墨綠色 */
+  .bg-visioning { background-color:  #fc9c7d; } /* 粉紅色 */
+  .bg-engagement { background-color: #d9d9d9; } /* 橙色 */
+  .bg-goal-orientation { background-color: #8dbfbc; } /* 藍色 */
+  .bg-self-belief { background-color: #fc9c7d; } /* 紫色 */
+
+  /* 設定按鈕在卡片右下方 */
+.card1 .learn-more {
+    position: absolute;
+    bottom: 15px; /* 與卡片底部的距離 */
+    right: 20px; /* 與卡片右側的距離 */
+    padding: 10px 10px; /* 調整按鈕內邊距 */
+    background-color: #fff; /* 按鈕背景色為白色 */
+    color: #333; /* 按鈕文字顏色 */
+    font-weight: bold;
+    border-radius: 5px; /* 圓角效果 */
+    text-decoration: none; /* 移除文字下劃線 */
+    font-size: 14px; /* 調整字體大小 */
+    transition: background-color 0.3s, color 0.3s; /* 加入背景色與文字顏色變化的過渡效果 */
+  }
+  
+  /* 當按鈕被懸停時的樣式 */
+  .card1 .learn-more:hover {
+    background-color: #333; /* 懸停時按鈕背景變深 */
+    color: #fff; /* 懸停時按鈕文字變為白色 */
+  }

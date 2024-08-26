@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+
+.card {
+  --circle-radius: 60px;
+  
+  width: 400px;
+  min-height: 460px;
+  background-color: #ffffff;
+  border-radius: var(--circle-radius);
+  overflow: hidden;
+  margin-bottom: 20px;
+  /* 保持卡片之間的距離 */
+}
+.card__img {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  /* 高度更新為200px，並應用新的背景圖片 */
+  background: url('https://via.placeholder.com/400x200') no-repeat center center / cover;
+  filter: blur(24px);
+  transition: filter 0.4s;
+}
+
+.card__img::before,
+.card__img::after {
+  content: "";
+  position: absolute;
+}
+
+.card__img::before {
+  bottom: calc(var(--circle-radius) * -1);
+  width: 100%;
+  height: calc(var(--circle-radius) * 2);
+  border-radius: var(--circle-radius) var(--circle-radius) 0 0;
+  background-color: #fff;
+}
+
+.card__img::after {
+  right: 0;
+  bottom: var(--circle-radius);
+  width: calc(var(--circle-radius) * 2);
+  height: calc(var(--circle-radius) * 2);
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: var(--circle-radius) var(--circle-radius) 0 0 #fff;
+}
+
+.card__content {
+  position: relative;
+  bottom: calc(var(--circle-radius) / 2);
+  margin-inline: 40px;
+  display: grid;
+  grid-template-rows: min-content 0fr;
+  transition: grid-template-rows 0.4s;
+  color: #565656;
+}
+
+.card__content__subheading {
+  font-size: 20px;
+}
+
+.card__content__text {
+  overflow: hidden;
+  opacity: 0;
+  transition: margin 0s 0.4s, opacity 0.4s;
+  color: #565656;
+}
+
+.card__content__button {
+  opacity: 0;
+  color: #000;
+  /* 設置按鈕文字顏色 */
+  font-size: 16px;
+  /* 確保字體大小適中 */
+  transition: opacity 0.4s ease-in-out;/* 增加過度效果 */
+}
+
+/* 卡片hover效果 */
+.card:hover .card__img {
+  filter: blur(0);
+  transition-delay: 0s;
+}
+
+.card:hover .card__content {
+  grid-template-rows: min-content 1fr;
+  transition-delay: 0s;
+}
+
+.card:hover .card__content__text {
+  margin-top: 16px;
+  opacity: 1;
+  transition-delay: 0.4s, 0.4s;
+}
+
+.card:hover .card__content__button {
+  opacity: 1;
+  transition-delay: 0.4s;
+}
+section {
+  padding-block: min(20vh, 2rem);
+  width: min(76.5rem, 90%);
+  margin-inline: auto;
+  color: #111;
+}
+
+section h2 {
+  text-transform: capitalize;
+  letter-spacing: 0.025em;
+  font-size: clamp(2rem, 1.8125rem + 0.75vw, 2.6rem);
+  color: #565656;
+  font-weight: bold;
+}
+
+section a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit; /* 使用父元素的顏色 */
+}
+
+section .container {
+  margin-top: 5em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 2rem;
+}
+
+section .container .card:nth-child(1) .box .icon .iconBox {
+  background: #fc9c7d;
+  
+}
+
+section .container .card:nth-child(2) .box .icon .iconBox {
+  background: #6dd6d0;
+}
+
+section .container .card:nth-child(3) .box .icon .iconBox {
+  background: #9eacb4;
+}
+
+section .container .card ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+
+section .container .card ul li {
+  text-transform: uppercase;
+  background: var(--clr-tag);
+  color: #282828;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.375rem 0.625rem;
+  border-radius: 0.188rem;
+}
+
+
+
+section a:hover,
+a:focus {
+  text-decoration: none; /* 滑鼠移過或獲得焦點時依然無下劃線 */
+  color: inherit; /* 滑鼠移過或獲得焦點時使用父元素的顏色 */
+  outline: none; /* 移除聚焦時的外框 */
+  transform: scale(1.05); /* 略微放大按鈕 */
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+section .container .card ul .branding {
+  color: white;
+}
+
+section .container .card ul .packaging {
+  color: white;
+}
+
+section .container .card ul .marketing {
+  color: white;
+}
+
+section .container .card .content {
+  padding: 0.938rem 0.625rem;
+}
+
+section .container .card .content h3 {
+  text-transform: capitalize;
+  font-size: clamp(1.5rem, 1.3909rem + 0.4364vw, 1.8rem);
+  color: #565656;
+}
+
+section .container .card .content p {
+  margin: 0.625rem 0 1.25rem;
+  color: #565656;
+}
+
+section .container .card-inner {
+  position: relative;
+  width: inherit;
+  height: 18.75rem;
+  background: var(--clr);
+  border-radius: 1.25rem;
+  border-bottom-right-radius: 0;
+  overflow: hidden;
+}
+
+section .container .card-inner .box {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+
+section .container .card-inner .box .imgBox {
+  position: absolute;
+  inset: 0;
+}
+
+section .container .card-inner .box .imgBox img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+section .container .card-inner .box .icon {
+  position: absolute;
+  bottom: -0.375rem;
+  right: -0.375rem;
+  width: 6rem;
+  height: 6rem;
+  background: var(--clr);
+  border-top-left-radius: 50%;
+}
+
+section .container .card-inner .box .icon:hover .iconBox {
+  transform: scale(1.1);
+}
+
+section .container .card-inner .box .icon::before {
+  position: absolute;
+  content: "";
+  bottom: 0.375rem;
+  left: -1.25rem;
+  background: transparent;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-bottom-right-radius: 1.25rem;
+  box-shadow: 0.313rem 0.313rem 0 0.313rem #fff;
+}
+
+section .container .card-inner .box .icon::after {
+  position: absolute;
+  content: "";
+  top: -1.25rem;
+  right: 0.375rem;
+  background: transparent;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-bottom-right-radius: 1.25rem;
+  box-shadow: 0.313rem 0.313rem 0 0.313rem var(--clr);
+}
+
+section .container .card-inner .box .icon .iconBox {
+  position: absolute;
+  inset: 0.625rem;
+  background: #282828;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+
+section .container .card-inner .box .icon .iconBox span {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+/*# sourceMappingURL=dm.css.map */
