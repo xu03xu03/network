@@ -11,8 +11,8 @@ var app = new Vue({
                 sublineFirstLine: "傳統產業不再傳統",
                 sublineSecondLine: "XingBei",
                 href: "#service",
-                bgImg: "https://i.postimg.cc/C5yvGSkm/slide0.jpg",
-                rectImg: "https://i.postimg.cc/vTW0XkvM/slide-rect0.jpg"
+                bgImg: "https://i.postimg.cc/bwCrh4NB/photo-1541462608143-67571c6738dd.avif",
+                rectImg: "https://i.postimg.cc/bwCrh4NB/photo-1541462608143-67571c6738dd.avif"
             },
             {
                 headlineFirstLine: "電子商務",
@@ -20,17 +20,17 @@ var app = new Vue({
                 sublineFirstLine: "電子商務走天下",
                 sublineSecondLine: "XingBei",
                 href: "#service",
-                bgImg: "https://i.postimg.cc/Qx34VNXM/slide1.jpg",
+                bgImg: "https://i.postimg.cc/bwCrh4NB/photo-1541462608143-67571c6738dd.avif",
                 rectImg: "https://i.postimg.cc/ryWZ8R2b/slide-rect1.jpg"
             },
             {
-                headlineFirstLine: "虛擬主機/網域",
-                headlineSecondLine: "註冊服務",
+                headlineFirstLine: "虛擬主機 / 網域",
+                headlineSecondLine: "/ 註冊",
                 sublineFirstLine: "輕鬆簡單完成主機、網域註冊",
                 sublineSecondLine: "XingBei",
                 href: "#service",
-                bgImg: "https://i.postimg.cc/t4RBtrnQ/slide2.jpg",
-                rectImg: "https://i.postimg.cc/3JFLGMRF/slide-rect2.jpg"
+                bgImg: "https://i.postimg.cc/bwCrh4NB/photo-1541462608143-67571c6738dd.avif",
+                rectImg: "https://i.postimg.cc/G20sW6X1/photo-1416339442236-8ceb164046f8.avif"
             }
         ]
     },
